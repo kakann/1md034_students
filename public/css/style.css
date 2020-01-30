@@ -16,6 +16,12 @@ body {
     background-color: black;
 }
 
+table
+{
+    width: 70%;
+    margin: 0 auto;
+}
+
 .kontakt
 {
     
