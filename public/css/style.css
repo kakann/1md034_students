@@ -4,6 +4,17 @@ body {
     font-size: 1.2em
 }
 
+main header img
+{
+    width: 100%;
+    
+    opacity: 0.5;
+}
+
+header
+{
+    margin: 1px 2px 3px 4px;
+}
 .allergy
 {
     font-weight: bold;
@@ -14,14 +25,14 @@ body {
 {
     color: white;
     background-color: black;
-    border: 10px dashed #ff9900;
+    border: 5px dashed #ff9900;
     text-align: center;
     
 }
 
 section
 {
-    margin: 1px 2px 3px 4px; 	
+    margin: 1px 2px 3px 4px;
 }
 
 table
@@ -33,7 +44,7 @@ table
 
 .kontakt
 {
-    
+    border: 5px dashed black;
 }
 
 button:hover {
