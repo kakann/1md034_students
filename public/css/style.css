@@ -7,13 +7,27 @@ body {
 main header img
 {
     width: 100%;
+    height: auto;
     
     opacity: 0.5;
+    
+    
 }
 
+main header h1
+{
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+}
 header
 {
+    text-align: center;
+    
     margin: 1px 2px 3px 4px;
+    height: 100%;
+    
+    
 }
 .allergy
 {
