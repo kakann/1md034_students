@@ -18,46 +18,58 @@ let dburger = new menuItem('V-burger', 1500, false, false, 'https://cdn.stowr.se
 
 var burgers = [vburger, sburger, dburger];
 
-let myElement = document.getElementById("myID");
+let myElement = document.getElementById("wrapper");
 
 for (var burger of burgers)
 {
-        let listItem = document.createElement("li");
-        let listValue = document.createTextNode(burger.burgName);
-        let innerList = document.createElement("ol");
-        
-        if(burger.gluten){
-        	let innerGlut = document.createElement("li");
-          let glutValue = document.createTextNode("This burger contains gluten.");
-          innerGlut.appendChild(glutValue);
-          innerList.appendChild(innerGlut);
-        }
-        if(burger.lactose){
-        	let innerLact = document.createElement("li");
-          let lactValue = document.createTextNode("This burger contains lactose.");
-          
-          innerLact.appendChild(lactValue);
-          innerList.appendChild(innerLact);
-        }
-        
-        let innerKCal = document.createElement("li");
-        let KCalValue = document.createTextNode("This burger contains " + burger.kCal + " calories");    
-        innerKCal.appendChild(KCalValue);
-        innerList.appendChild(innerKCal);
-        
-        
-        
-        listItem.appendChild(listValue);
-        myElement.appendChild(listItem);
-        
-        listItem.appendChild(innerList);
+    let listItem = document.createElement("div");
+    listItem.className = "box";
+    let listValue = document.createTextNode(burger.burgName);
+    var img = document.createElement("img");
+    img.src = burger.imgPath;
+    img.width = 200;
+    img.height= 200;
+    
+    
+    let innerList = document.createElement("ul");
+    
+    if(burger.gluten){
+        let innerGlut = document.createElement("li");
+        let glutValue = document.createTextNode("This burger contains gluten.");
+        innerGlut.appendChild(glutValue);
+        innerList.appendChild(innerGlut);
+    }
+    if(burger.lactose){
+        let innerLact = document.createElement("li");
+        let lactValue = document.createTextNode("This burger contains lactose.");
+        innerLact.appendChild(lactValue);
+        innerList.appendChild(innerLact);
+    }
+    
+    let innerKCal = document.createElement("li");
+    let KCalValue = document.createTextNode("This burger contains " + burger.kCal + " calories");    
+    innerKCal.appendChild(KCalValue);
+    innerList.appendChild(innerKCal);
+    
+    
+    
+    listItem.appendChild(listValue);
+    listItem.appendChild(img);
+    myElement.appendChild(listItem);
+    
+    let allergies = document.createElement("SECTION");
+    allergies.className = "allergy";
+    listItem.appendChild(allergies);
+    allergies.appendChild(innerList)
+    
+    //listItem.appendChild(innerList);
 }
 
 
 
 
-document.getElementById("V-burger").innerHTML = vburger.info();
-document.getElementById("S-burger").innerHTML = sburger.info();
-document.getElementById("D-burger").innerHTML = dburger.info();
+//document.getElementById("V-burger").innerHTML = vburger.info();
+//document.getElementById("S-burger").innerHTML = sburger.info();
+//document.getElementById("D-burger").innerHTML = dburger.info();
 
 
