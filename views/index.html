@@ -6,8 +6,8 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="/css/style.css"/>
         <script src="js/js_script.js" defer></script>
-        <!--<script src="js/vue_script.js"></script>
-        <script src="https://vuejs.org/js/vue.js"></script>-->
+        <script src="js/vue_script.js"defer></script>
+        <script src="https://vuejs.org/js/vue.js"></script>
         
     </head>
     <body>
@@ -23,6 +23,27 @@
         <p>Välj en av dessa läckra hamburgare</p>
 
         <div id="wrapper">
+          <div class="box" v-for="burger in copiedBurgers">
+            <p>{{ burger.burgName}}</p>
+            
+            <img v-bind:src="burger.imgPath" width="200" height="200">
+            
+            <section class="allergy">
+            <ul>
+              <li>
+                This burger contains {{burger.kCal}} kcal.
+              </li>
+              <li v-if="burger.gluten">
+                This burger contains gluten.
+              </li>
+              <li v-if="burger.lactose">
+                This burger contains lactose.
+              </li>
+            </ul>
+            </section>
+            
+            </div>
+          
           
         </div>
 

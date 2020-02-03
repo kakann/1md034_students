@@ -21,7 +21,7 @@ var burgers = [vburger, sburger, dburger];
 
 
 const vm = new Vue({
-  el: '#vue-wrapper',
+  el: '#wrapper',
   data: {
     copiedBurgers: burgers
   },

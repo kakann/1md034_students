@@ -19,7 +19,7 @@ let dburger = new menuItem('V-burger', 1500, false, false, 'https://cdn.stowr.se
 var burgers = [vburger, sburger, dburger];
 
 let myElement = document.getElementById("wrapper");
-
+/*
 for (var burger of burgers)
 {
     let listItem = document.createElement("div");
