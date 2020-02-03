@@ -1,7 +1,12 @@
 const vm = new Vue({
-  el: '#myID',
+  el: '#V-burger',
   data: {
-    arbitraryVariableName: 'Välj en burgare'
+    copiedInfo: vburger.info()
+  },
+  methods: {
+  	printInfo: function(){
+    	console.log( this.copiedInfo );
+    }
   }
 })
      
