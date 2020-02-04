@@ -1,5 +1,5 @@
 
-
+/*
 function menuItem(burgName, kCal, gluten, lactose, imgPath){
     this.burgName = burgName;
     this.kCal = kCal;
@@ -18,12 +18,13 @@ let sburger = new menuItem('S-burger', 900, false, true, 'https://img.buzzfeed.c
 let dburger = new menuItem('V-burger', 1500, false, false, 'https://cdn.stowr.se/p/8d/67/8d67ac3ed75f9ac5b199c0b6891d6b65e33da97f-105883-2.jpg');
 
 var burgers = [vburger, sburger, dburger];
+*/
 
 
 const vm = new Vue({
   el: '#wrapper',
   data: {
-    copiedBurgers: burgers
+    copiedBurgers: food
   },
   methods: {
   	printInfo: function(){

@@ -5,6 +5,7 @@
         <title>The world famous burge whopper</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+        <script type="text/javascript" src="js/menu.js"></script>
         <script src="js/js_script.js" defer></script>
         <script src="js/vue_script.js"defer></script>
         <script src="https://vuejs.org/js/vue.js"></script>
@@ -24,9 +25,9 @@
 
         <div id="wrapper">
           <div class="box" v-for="burger in copiedBurgers">
-            <p>{{ burger.burgName}}</p>
+            <p>{{ burger.name}}</p>
             
-            <img v-bind:src="burger.imgPath" width="200" height="200">
+            <img v-bind:src="burger.img" width="200" height="200">
             
             <section class="allergy">
             <ul>
