@@ -56,36 +56,33 @@ const vn = new Vue({
         copiedBurgers: food,
         burgArray: [],
         displayArray: false,
-        house: "",
         orders: {},
+        details: {x: 0, y: 0},
+        currentIndex: 0,
+        person: {name: '', email: '', gender: '', payOption: ''},
     },
-    created: function() {
-    /* When the page is loaded, get the current orders stored on the server.
-     * (the server's code is in app.js) */
-    socket.on('initialize', function(data) {
-      this.orders = data.orders;
-    }.bind(this));
-
-    /* Whenever an addOrder is emitted by a client (every open map.html is
-     * a client), the server responds with a currentQueue message (this is
-     * defined in app.js). The message's data payload is the entire updated
-     * order object. Here we define what the client should do with it.
-     * Spoiler: We replace the current local order object with the new one. */
-    socket.on('currentQueue', function(data) {
-      this.orders = data.orders;
-    }.bind(this));
-  },
     methods: {
         getNext: function() {
       /* This function returns the next available key (order number) in
        * the orders object, it works under the assumptions that all keys
        * are integers. */
-      let lastOrder = Object.keys(this.orders).reduce(function(last, next) {
-        return Math.max(last, next);
-      }, 0);
-      return lastOrder + 1;
+      this.currentIndex = this.currentIndex + 1;
+      return this.currentIndex;
     },
-    addOrder: function(event) {
+    addOrder: function() {
+      /* When you click in the map, a click event object is sent as parameter
+       * to the function designated in v-on:click (i.e. this one).
+       * The click event object contains among other things different
+       * coordinates that we need when calculating where in the map the click
+       * actually happened. */
+      
+      socket.emit('addOrder', {
+        orderId: this.getNext(),
+          details: this.details, // NEW CHANGE
+        orderItems: this.burgArray,
+      });
+    },
+      displayOrder: function(event) {
       /* When you click in the map, a click event object is sent as parameter
        * to the function designated in v-on:click (i.e. this one).
        * The click event object contains among other things different
@@ -95,21 +92,21 @@ const vn = new Vue({
         x: event.currentTarget.getBoundingClientRect().left,
         y: event.currentTarget.getBoundingClientRect().top,
       };
-      socket.emit('addOrder', {
-        orderId: this.getNext(),
-        details: {
+
+          
+        this.details= {
           x: event.clientX - 10 - offset.x,
           y: event.clientY - 10 - offset.y,
-        },
-        orderItems: ['Beans', 'Curry'],
-      });
+        };
+       
     },
         markDone: function() {
-            this.displayArray=true;
-            var firstAndLast = document.getElementById("firstname").value;
-            var email = document.getElementById("email").value;
             
-            var gender = "male";
+            this.displayArray=true;
+            let firstAndLast = document.getElementById("firstname").value;
+            let email = document.getElementById("email").value;
+            
+            let gender = "male";
 
             if(document.getElementById("male").checked){
                 gender = "male";
@@ -121,15 +118,22 @@ const vn = new Vue({
                 gender = "other";
             }
 
-            var payOption = document.getElementById("recipient");
-            var selectedValue = payOption.options[payOption.selectedIndex].value;
+            let payOption = document.getElementById("recipient");
+            let selectedValue = payOption.options[payOption.selectedIndex].value;
+
+            this.person.name = firstAndLast;
+            this.person.email = email;
+            this.person.gender = gender;
+            this.person.payOption = selectedValue;
+            this.addOrder();
             
 
-            let customerrr = new customer(firstAndLast, email, gender, selectedValue);
-           
+            //let customerrr = new customer(firstAndLast, email, gender, selectedValue);
+           /*
             document.getElementById("cname").innerHTML = "Name: " + customerrr.name;
-            document.getElementById("cgender").innerHTML = "Gender: "+ customerrr.gender;
+            document.getElementById("cgender").innerHTML = "Gender: "+ gender;
             document.getElementById("cpayment").innerHTML = "Choosen payment method: "+ customerrr.payOption;
+*/
 
             
             

@@ -71,6 +71,10 @@ button:hover {
      
 }
 
+#recipts {
+    visibility: hidden;
+}
+
 #displayhamburgers
 {
     

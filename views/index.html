@@ -14,7 +14,7 @@
         <script src="js/vue_script.js"defer></script>
         <script src="https://vuejs.org/js/vue.js"></script>
 
-        <script src="js/deli-very.js" defer></script>
+        
         <link rel="stylesheet" href="css/deli-very.css">
         
           
@@ -102,11 +102,9 @@
               <h1> Click in the map! </h1>
               <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
               <div class="view-box">
-                <div id="dots" v-on:click="addOrder">
-                  <div 
-                     v-for="(order, key) in orders"
-                     v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                    {{key}}
+                <div id="dots" v-on:click="displayOrder">
+                  <div v-bind:style="{ left: details.x + 'px', top: details.y + 'px'}">
+                    T
                   </div>
                 </div>
               </div>
@@ -122,9 +120,13 @@
         
 
         <div id="recipt">
-          <p id="cname"></p>
-          <p id="cgender"></p>
-          <p id="cpayment"></p>
+          <p>
+          Name:           {{person.name}}
+          Gender:         {{person.gender}}
+          Email:          {{person.email}}
+          Pay by:         {{person.payOption}}
+          Coordinates:    x {{details.x}}, y {{details.y}}
+          </p>
         </div>
 
         <div v-if="displayArray" v-for="burg in burgArray">
