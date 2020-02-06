@@ -4,13 +4,20 @@
     
         <title>The world famous burge whopper</title>
         <meta charset="utf-8"/>
+        
         <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+        <script src="/socket.io/socket.io.js" defer></script>
         <script type="text/javascript" src="js/customers.js"defer></script>
         <script type="text/javascript" src="js/menu.js"defer></script>
         
         <script src="js/js_script.js" defer></script>
         <script src="js/vue_script.js"defer></script>
         <script src="https://vuejs.org/js/vue.js"></script>
+
+        <script src="js/deli-very.js" defer></script>
+        <link rel="stylesheet" href="css/deli-very.css">
+        
+          
         
   </head>
   <div id="overall">
@@ -79,15 +86,7 @@
                 <label for="email">Email-Adress</label><br>
                 <input type="email" id="email" name="ln" placeholder="Email-adress" />
               </p>
-              <p>
-                <label for="Adress">Adress</label><br>
-                <input type="text" id="adress" name="em" required="required" placeholder="Adress" />
-              </p>
-
-              <p>
-                <label for="House">House number</label><br>
-                <input type="text" id="housenr" name="em" required="required" placeholder="House number" />
-              </p>
+              
 
               <p>
                 <label for="Payment method">Betalsätt</label><br />
@@ -99,6 +98,18 @@
                   <option value="Låna pengar">Låna pengar</option>
                 </select>
               </p>
+
+              <h1> Click in the map! </h1>
+              <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+              <div class="view-box">
+                <div id="dots" v-on:click="addOrder">
+                  <div 
+                     v-for="(order, key) in orders"
+                     v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                    {{key}}
+                  </div>
+                </div>
+              </div>
               
 
             </form>
@@ -112,8 +123,6 @@
 
         <div id="recipt">
           <p id="cname"></p>
-          <p id="cadress"></p>
-          <p id="chouse"></p>
           <p id="cgender"></p>
           <p id="cpayment"></p>
         </div>
