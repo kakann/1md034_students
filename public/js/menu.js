@@ -14,8 +14,15 @@ let food = [
         "img": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/165384.jpg"
     },
     {
-        "name": "D-burger",
-        "kCal": 1500,
+        "name": "VM-burger",
+        "kCal": 1337,
+        "lactose": true,
+        "gluten": true,
+        "img": "https://cdn.stowr.se/p/8d/67/8d67ac3ed75f9ac5b199c0b6891d6b65e33da97f-105883-2.jpg"
+    },
+    {
+        "name": "BRUTE-burger",
+        "kCal": 5000,
         "lactose": false,
         "gluten": false,
         "img": "https://cdn.stowr.se/p/8d/67/8d67ac3ed75f9ac5b199c0b6891d6b65e33da97f-105883-2.jpg"

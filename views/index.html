@@ -5,12 +5,15 @@
         <title>The world famous burge whopper</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-        <script type="text/javascript" src="js/menu.js"></script>
+        <script type="text/javascript" src="js/customers.js"defer></script>
+        <script type="text/javascript" src="js/menu.js"defer></script>
+        
         <script src="js/js_script.js" defer></script>
         <script src="js/vue_script.js"defer></script>
         <script src="https://vuejs.org/js/vue.js"></script>
         
-    </head>
+  </head>
+  <div id="overall">
     <body>
       <main>
         <header>
@@ -40,15 +43,15 @@
               <li v-if="burger.lactose">
                 This burger contains lactose.
               </li>
+              <li>
+                <input type="checkbox" v-model="burgArray" name="burger.name" :value="burger.name"> Buy burger<br>
+                <p></p>
+              </li>
             </ul>
             </section>
             
             </div>
-          
-          
         </div>
-
-        
       </section>
 
       <section class="kontakt">
@@ -66,34 +69,34 @@
               </p>
 
               <p>
-                <label for="firstname">Kön</label><br>
-                <input type="radio" name="gender" checked = "checked" value="male"> Male<br>
-                <input type="radio" name="gender" value="female"> Female<br>
-                <input type="radio" name="gender" value="other"> Other
+                <label for="Gender">Kön</label><br>
+                <input type="radio" id="male" name="gender" checked = "checked" value="male"> Male<br>
+                <input type="radio" id="female" name="gender" value="female"> Female<br>
+                <input type="radio" id="other" name="gender" value="other"> Other
               </p>
               
               <p>
-                <label for="lastname">Email-Adress</label><br>
-                <input type="text" id="lastname" name="ln" placeholder="Email-adress" />
+                <label for="email">Email-Adress</label><br>
+                <input type="email" id="email" name="ln" placeholder="Email-adress" />
               </p>
               <p>
                 <label for="Adress">Adress</label><br>
-                <input type="email" id="email" name="em" required="required" placeholder="Adress" />
+                <input type="text" id="adress" name="em" required="required" placeholder="Adress" />
               </p>
 
               <p>
                 <label for="House">House number</label><br>
-                <input type="email" id="email" name="em" required="required" placeholder="House number" />
+                <input type="text" id="housenr" name="em" required="required" placeholder="House number" />
               </p>
 
               <p>
                 <label for="Payment method">Betalsätt</label><br />
                 <select id="recipient" name="rcp">
-                  <option>Kort</option>
-                  <option>Kontant</option>
-                  <option>Swish</option>
-                  <option>Räkning med ränta</option>
-                  <option>Låna pengar</option>
+                  <option value="Kort">Kort</option>
+                  <option value="Kontant">Kontant</option>
+                  <option value="Swish">Swish</option>
+                  <option value="Räkning med ränta">Räkning med ränta</option>
+                  <option value="Låna pengar">Låna pengar</option>
                 </select>
               </p>
               
@@ -101,11 +104,27 @@
             </form>
           </section>
         </main>
+        
 
-        <button type="submit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFzWftnUl_RpT5sq6RPuNjhwBqhPl7EhXt7-q4wEd4Il7mX5ig" width= "35"/> Send Info</button>
+        <button v-on:click="markDone()" type="submit" id="submitKey"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFzWftnUl_RpT5sq6RPuNjhwBqhPl7EhXt7-q4wEd4Il7mX5ig" width= "35"/> Send Info</button>
+
+        
+
+        <div id="recipt">
+          <p id="cname"></p>
+          <p id="cadress"></p>
+          <p id="chouse"></p>
+          <p id="cgender"></p>
+          <p id="cpayment"></p>
+        </div>
+
+        <div v-if="displayArray" v-for="burg in burgArray">
+          You have bought: {{burg}}
+        </div>
         
       </section>
       <footer></footer>
     </body>
+  </div>
 </html>
      

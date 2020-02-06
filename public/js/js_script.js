@@ -1,4 +1,87 @@
+/* STEP 10 JS
+let myButton = document.getElementById("submitKey");
 
+var firstAndLast = document.getElementById("firstname").value;
+var email = document.getElementById("email").value;
+var adress = document.getElementById("adress").value;
+var housenr = document.getElementById("housenr").value;
+var gender;
+
+if(document.getElementById("male").checked){
+    gender = "male";
+}
+if(document.getElementById("female").checked){
+    gender = "female";
+}
+if(document.getElementById("other").checked){
+    gender = "other";
+}
+
+var payOption = document.getElementById("recipient");
+var selectedValue = payOption.options[payOption.selectedIndex].value;
+
+
+
+function customer(name, email, adress, house, gender, payOption){
+    this.name = name;
+    this.email = email;
+    this.adress = adress;
+    this.house = house;
+    this.gender=gender;
+    this.payOption = payOption;
+    
+}
+
+let customers = [("Martin", "asd", "ez", 66, "male", "Kort")];
+
+myButton.onclick = function (){
+    let newCustomer = new customer(firstAndLast, email, adress, housenr, gender, selectedValue);
+    customers.push(newCustomer);
+}
+
+console.log(customers);
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 function menuItem(burgName, kCal, gluten, lactose, imgPath){
     this.burgName = burgName;
     this.kCal = kCal;
@@ -73,3 +156,4 @@ for (var burger of burgers)
 //document.getElementById("D-burger").innerHTML = dburger.info();
 
 
+*/
