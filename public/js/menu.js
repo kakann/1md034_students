@@ -26,6 +26,13 @@ let food = [
         "lactose": false,
         "gluten": false,
         "img": "https://cdn.stowr.se/p/8d/67/8d67ac3ed75f9ac5b199c0b6891d6b65e33da97f-105883-2.jpg"
+    },
+    {
+        "name": "Child-burger",
+        "kCal": 250,
+        "lactose": false,
+        "gluten": false,
+        "img": "https://image.shutterstock.com/image-photo/fast-food-small-burger-on-260nw-1306522597.jpg"
     }
 ]
     

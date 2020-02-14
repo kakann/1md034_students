@@ -14,6 +14,8 @@ main header img
 main header h1
 {
     position: absolute;
+    
+    padding: 250px 600px;
     overflow: hidden;
     text-align: center;
 }
@@ -60,19 +62,21 @@ button:hover {
 }
 
 #wrapper {
-    grid-templete-columns: 200px 200px 200px 200px 200px;
+    grid-template-columns: 15% 15% 15% 15% 15%;
      display: grid;
      grid-column-gap: 10px;
      column-count: 5;
      background-color: black;
      color: #444;
+     justify-content: center;
      
      
      
 }
 
-#recipts {
+#recipt {
     visibility: hidden;
+    
 }
 
 #displayhamburgers

@@ -117,23 +117,24 @@
 
         <button v-on:click="markDone()" type="submit" id="submitKey"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFzWftnUl_RpT5sq6RPuNjhwBqhPl7EhXt7-q4wEd4Il7mX5ig" width= "35"/> Send Info</button>
 
-        
-
-        <div id="recipt">
-          <p>
-          Name:           {{person.name}}
-          Gender:         {{person.gender}}
-          Email:          {{person.email}}
-          Pay by:         {{person.payOption}}
-          Coordinates:    x {{details.x}}, y {{details.y}}
-          </p>
-        </div>
-
-        <div v-if="displayArray" v-for="burg in burgArray">
-          You have bought: {{burg}}
-        </div>
-        
+      
       </section>
+
+      <div id="recipt">
+          
+          <p>Name:           {{person.name}}</p>
+          <p>Gender:         {{person.gender}}</p>
+          <p>Email:          {{person.email}}</p>
+          <p>Pay by:         {{person.payOption}}</p>
+          <p>Coordinates:    x= {{details.x}}, y= {{details.y}}</p>
+          
+        </div>
+
+        You have bought:
+        <ul v-if="displayArray" v-for="burg in burgArray">
+          <li>{{burg}}</li>
+        </ul>
+        
       <footer></footer>
     </body>
   </div>

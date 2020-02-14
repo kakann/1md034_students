@@ -79,7 +79,8 @@ const vn = new Vue({
       socket.emit('addOrder', {
         orderId: this.getNext(),
           details: this.details, // NEW CHANGE
-        orderItems: this.burgArray,
+          orderItems: this.burgArray,
+          personInfo: this.person,
       });
     },
       displayOrder: function(event) {
